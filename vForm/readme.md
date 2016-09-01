@@ -1,10 +1,10 @@
 # vForm
-这是一个表单验证的js类，简化表单验证的操作，是一个很灵活的表单验证类；<br />
-在表单控件上支持事件；<br />
-支持指令的验证；<br />
-支持表单的序列化；<br />
+这是一个表单验证的js类，`简化表单验证`的操作，是一个很`灵活`的表单验证类；<br />
+在表单控件上`支持事件`；<br />
+`支持指令`的验证；<br />
+支持表单的`序列化`；<br />
 获取表单的全部数据；<br />
-使用ajax需要加载jquery,支持get方法和post方法，还有防止重复提交功能。<br/>
+使用`ajax`需要`加载jquery`,支持`get方法`和`post方法`，还有`防止重复提交`功能。<br/>
 
 ## 例子
      ```
@@ -91,27 +91,27 @@
   
   方法的调用，需要先实例化vForm，才能调用。
  
-###### self.validate 验证options.validate里面所有对象
+###### vForm.validate 验证options.validate里面所有对象
         @param int type  0|1|2
         0：只显示一条提示信息
         1：显示全部提示信息
         2：不显示提示信息
     
-###### self.check 判断,可以根据正则、方法、指令等来判断
+###### vForm.check 判断,可以根据正则、方法、指令等来判断
         @param string name  控件名称
         @param string|function|regular|boolean reg 判断规则
         @param msg|function msg 提示信息，或者是显示提示信息的方法
         @return boolean true|false
   
-###### self.showTip 显示错误，是可以根据自己的需要重写
+###### vForm.showTip 显示错误，是可以根据自己的需要重写
         @param boolean res 验证后的结果
         @param string name 控件名称
         @param string|function msg 提示信息，或者是显示提示信息的方法
      
-###### self.getVal 获取某一个表单控件的值
+###### vForm.getVal 获取某一个表单控件的值
         @param string name
         
-###### self.getData 获取表单数据
+###### vForm.getData 获取表单数据
         @return json object
         eg:
         {
@@ -119,12 +119,12 @@
             "password":"123"
         }
         
-###### self.serialize 表单序列化
+###### vForm.serialize 表单序列化
         @return string
         eg:
         username=123&password=123
         
-###### self.post 调用jQuery的post请求,防止重复提交
+###### vForm.post 调用jQuery的post请求,防止重复提交
         @param string url url地址
         @param object params 参数
         @param function fun 执行成功以后的回调方法
