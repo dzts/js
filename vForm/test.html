@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="form.js"></script>
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    </head>
+    <style type="text/css">
+    .form-row{
+        margin-bottom:20px;
+    }
+    .form-row label{
+        font-weight: bold;
+        margin-right:10px;
+        width:150px;
+        text-align:right;
+        display:inline-block;
+    }
+    .form-row .form-c{
+        display:inline-block;
+    }
+    .form-row .form-tip{
+        display:inline-block;
+        color:red;
+        margin-left:10px;
+    }
+    </style>
+    <body>
+        <form name="tForm" class="form-t">
+            <div class="form-row">
+                <label>用户名：</label>
+                <div class="form-c"><input type="text" name="username" /></div>
+                <span class="form-tip"></span>
+            </div>
+            <div class="form-row">
+                <label>邮箱：</label>
+                <div class="form-c"><input type="text" name="email" /></div>
+                <span class="form-tip"></span>
+            </div>
+            <div class="form-row">
+                <label>电话：</label>
+                <div class="form-c"><input type="text" name="tel" /></div>
+                <span class="form-tip"></span>
+            </div>
+            <div class="form-row">
+                <label>qq：</label>
+                <div class="form-c"><input type="text" name="qq" /></div>
+                <span class="form-tip"></span>
+            </div>
+            <div class="form-row">
+                <label></label>
+                <div class="form-c"><input type="button" value="确认" onclick="save()"/></div>
+                <span class="form-tip"></span>
+            </div>
+        </form>
+        <script type="text/javascript">
+        
+        var tForm = new vForm({
+            'name':'tForm',
+            'validate':[
+                ['username','notEmpty','用户名不能为空！','keyup'],
+                ['username','username','用户名格式错误！','keyup'],
+                ['email','notEmpty','邮箱不能为空','keyup'],
+                ['email','email','邮箱格式不正确！','keyup'],
+                ['tel','notEmpty','电话不能为空','keyup'],
+                ['tel','tel','电话格式不正确！','keyup'],
+                ['qq','notEmpty','qq不能为空！','keyup'],
+                ['qq',/^\d{5,16}$/,'qq格式不正确！','keyup']
+            ],
+            'showTip':function(res,elem,msg){
+                if( res == false ){
+                    $(elem).parents('.form-row').find('.form-tip').html( msg );
+                }else{
+                    $(elem).parents('.form-row').find('.form-tip').html( "" );
+                }
+            }
+        });
+        
+        function save(){
+            if(!tForm.validate(0)){
+                return false;
+            }
+            tForm.post('/test',tForm.serialize(),function(){
+                
+            });
+        }
+        
+        </script>
+    </body>
+</html>
