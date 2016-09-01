@@ -1,5 +1,5 @@
 /*vForm 表单验证
-    
+     
     eg:
     //实例化vForm;定义验证规则、定义提示的方法
     var userForm = new vForm({
