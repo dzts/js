@@ -8,6 +8,7 @@
 
 ## 例子
     //实例化vForm;定义验证规则、定义提示的方法
+    ```js
     var userForm = new vForm({
         'name':'userForm',
         'validate':[
@@ -34,10 +35,11 @@
     userForm.post('/test',pData,function(data){
         
     });
-    
+    ```
 ## 参数
 
   参数是一个object,有name、validate、showTip。<br>
+  ```
   {
     'name':'userForm',//
     'validate':[ //
@@ -47,7 +49,7 @@
         ['password',/\w+{6,16}/,'密码格式不正确！','keyup']
     ]
   }
-  
+  ```
   ### name 
   
     表单名称，必须有，否则会报一个错误。<br>
